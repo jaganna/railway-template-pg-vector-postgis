@@ -11,9 +11,8 @@ RUN cd /tmp && \
     git clone --branch v0.8.0 https://github.com/pgvector/pgvector.git && \
     cd pgvector && \
     make clean && \
-    make OPTFLAGS="" && \
-    make install
+    make OPTFLAGS="" with_llvm=no && \
+    make install with_llvm=no
 
 RUN apt-get remove -y build-essential postgresql-server-dev-16 git && \
     apt-get autoremove -y
-    
